@@ -1,0 +1,31 @@
+{
+  "name": "mangler",
+  "version": "1.0.0",
+  "description": "data manipulation utility",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha specs/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coinpit/mangler.git"
+  },
+  "keywords": [
+    "data",
+    "manipulation"
+  ],
+  "author": "coinpit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coinpit/mangler/issues"
+  },
+  "homepage": "https://github.com/coinpit/mangler#readme",
+  "dependencies": {
+    "fixtures.js": "^2.1.0",
+    "json-stringify-safe": "^5.0.1"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^2.3.4"
+  }
+}
