@@ -1,3 +1,4 @@
+[![Circle CI](https://circleci.com/gh/coinpit/mangler.svg?style=shield)](https://circleci.com/gh/coinpit/mangler)
 # mangler
 data manipulation utility
 
