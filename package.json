@@ -1,6 +1,6 @@
 {
   "name": "mangler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "data manipulation utility",
   "main": "index.js",
   "scripts": {
@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/coinpit/mangler#readme",
   "dependencies": {
-    "fixtures.js": "^2.1.0",
-    "json-stringify-safe": "^5.0.1"
+    "fixtures.js": "^2.1.0"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
