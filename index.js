@@ -2,6 +2,7 @@ var assert    = require('assert')
 
 module.exports = (function () {
   var util = {}
+  var escapes = { '&': '&amp;', '>': '&gt;', '<': '&lt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;'}
 
   util.mapify = function (list, key) {
     assert(Array.isArray(list), ' list ' + list + ' must be an array')
@@ -42,6 +43,25 @@ module.exports = (function () {
     }
     return Array.isArray(obj) && objs || objs[0]
   }
+
+  util.unsanitizeString = function (string) {
+    var badChars = Object.keys(escapes)
+    for(var i = 0; i < badChars.length; i++) {
+      var re = new RegExp(escapes[badChars[i]], 'g')
+      string = string.replace(re, badChars[i])
+    }
+    return string
+  }
+
+  util.sanitizeString = function (string) {
+    var badChars = Object.keys(escapes)
+    for(var i = 0; i < badChars.length; i++) {
+      var re = new RegExp(badChars[i], 'g')
+      string = string.replace(re, escapes[badChars[i]])
+    }
+    return string
+  }
+
 
   return util
 })()

@@ -1,5 +1,5 @@
 {
-  "array": [
+  "array"   : [
     {
       "id"   : "1",
       "value": "one"
@@ -8,7 +8,7 @@
       "value": "two"
     }
   ],
-  "map"  : {
+  "map"     : {
     "1": {
       "id"   : "1",
       "value": "one"
@@ -18,7 +18,7 @@
       "value": "two"
     }
   },
-  "fixed": [
+  "fixed"   : [
     {
       "input1": 0.2,
       "input2": 0.1,
@@ -82,7 +82,7 @@
   ],
   "delprops": [
     {
-      "input": {
+      "input" : {
         "object": "value",
         "killme": true
       },
@@ -90,28 +90,36 @@
       "result": {
         "object": "value"
       }
-    },
-    {
-      "input": [
+    }, {
+      "input" : [
         {
           "object": "value",
           "killme": true,
-          "zapme": "yes"
-        },
-        {
+          "zapme" : "yes"
+        }, {
           "object": "value",
           "killme": true
         }
       ],
-      "props": ["killme", "zapme"],
+      "props" : ["killme", "zapme"],
       "result": [
         {
           "object": "value"
-        },
-        {
+        }, {
           "object": "value"
         }
       ]
+    }
+  ],
+  "sanitize": [
+    {
+      "input": "<script>alert(' c&tch n\"')</script>",
+      "result":"&lt;script&gt;alert(&#x27; c&amp;tch n&quot;&#x27;)&lt;&#x2F;script&gt;"
+    }
+  ],"unsanitize": [
+    {
+      "input": "&lt;script&gt;alert(&#x27; c&amp;tch n&quot;&#x27;)&lt;&#x2F;script&gt;",
+      "result":"<script>alert(' c&tch n\"')</script>"
     }
   ]
 }

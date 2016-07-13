@@ -93,3 +93,26 @@ var result = mangler.delProps(input, ["killme", "zapme"])
 ]
 ```
 
+### mangler.sanitize(string)
+returns sanitized string
+
+#### example 
+```javascript
+var result = mangler.sanitize("<script>alert(' c&tch n\"')</script>");
+```
+#### output
+```javascript
+"&lt;script&gt;alert(&#x27; c&amp;tch n&quot;&#x27;)&lt;&#x2F;script&gt;"
+```
+
+### mangler.unsanitize(string)
+returns unsanitized string
+
+#### example 
+```javascript
+var result = mangler.sanitize("&lt;script&gt;alert(&#x27; c&amp;tch n&quot;&#x27;)&lt;&#x2F;script&gt;");
+```
+#### output
+```javascript
+"<script>alert(' c&tch n\"')</script>"
+```

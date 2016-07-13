@@ -46,3 +46,19 @@ describe('delprops', function() {
     })
   })
 })
+
+describe('sanitize string', function(){
+  fixtures.sanitize.forEach(function(test) {
+    it(test.input, function() {
+      expect(mangler.sanitizeString(test.input)).to.eql(test.result)
+    })
+  })
+})
+
+describe('unsanitize string', function(){
+  fixtures.unsanitize.forEach(function(test) {
+    it(test.input, function() {
+      expect(mangler.unsanitizeString(test.input)).to.eql(test.result)
+    })
+  })
+})
