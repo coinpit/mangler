@@ -1,6 +1,6 @@
 {
   "name": "mangler",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "data manipulation utility",
   "main": "index.js",
   "scripts": {
