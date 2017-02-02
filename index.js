@@ -1,8 +1,8 @@
-var assert    = require('assert')
+var assert = require('assert')
 
 module.exports = (function () {
-  var util = {}
-  var escapes = { '&': '&amp;', '>': '&gt;', '<': '&lt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;'}
+  var util    = {}
+  var escapes = { '&': '&amp;', '>': '&gt;', '<': '&lt;', '"': '&quot;', "'": '&#x27;', '/': '&#x2F;' }
 
   util.mapify = function (list, key) {
     assert(Array.isArray(list), ' list ' + list + ' must be an array')
@@ -15,7 +15,7 @@ module.exports = (function () {
     return map;
   }
 
-  util.arrayMapify = function(list, key) {
+  util.arrayMapify = function (list, key) {
     assert(Array.isArray(list), 'list ' + list + ' must be an array')
     assert(key, 'key must be present')
     var map = {}
@@ -27,10 +27,8 @@ module.exports = (function () {
     return map;
   }
 
-
   util.fixed = function (number) {
-    var multiplier = 1e8
-    return Math.round(number * multiplier) / multiplier;
+    return number.toFixed(10) - 0
   }
 
   util.delProps = function (obj, properties) {
@@ -46,7 +44,7 @@ module.exports = (function () {
 
   util.unsanitizeString = function (string) {
     var badChars = Object.keys(escapes)
-    for(var i = 0; i < badChars.length; i++) {
+    for (var i = 0; i < badChars.length; i++) {
       var re = new RegExp(escapes[badChars[i]], 'g')
       string = string.replace(re, badChars[i])
     }
@@ -55,13 +53,12 @@ module.exports = (function () {
 
   util.sanitizeString = function (string) {
     var badChars = Object.keys(escapes)
-    for(var i = 0; i < badChars.length; i++) {
+    for (var i = 0; i < badChars.length; i++) {
       var re = new RegExp(badChars[i], 'g')
       string = string.replace(re, escapes[badChars[i]])
     }
     return string
   }
-
 
   return util
 })()
